@@ -204,6 +204,17 @@ Gulp contains all bundlers tasks and watchers. All tasks are easy to understand:
 - `js` - all task for compiling javascript ;
 - `serve` - all task for compiling for developing mode.
 
+Generate static HTML pages:
+---------------------------
+
+You can generate static HTML pages, for this you need run command:
+
+```bash
+php bin/console generate:static-pages
+```
+
+will be generated pages in folder `web/static`. 
+
 
 [Model-View-Controller]: https://ru.wikipedia.org/wiki/Model-View-Controller
 [Twig]: http://paularmstrong.github.io/swig/
