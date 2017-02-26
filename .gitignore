@@ -1,0 +1,11 @@
+/.idea/
+/app/config/parameters.php
+/var/
+/vendor/
+/node_modules/
+/web/components/*
+!/web/static/.gitkeep
+/web/static/
+/web/css/template.css
+/phpunit.xml
+composer.phar

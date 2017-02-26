@@ -1,0 +1,24 @@
+{
+    "name": "glavweb/silex-standard",
+    "license": "MIT",
+    "type": "project",
+    "description": "The \"Silex Standard Edition\".",
+    "autoload": {
+        "psr-4": { "": "src/" },
+        "classmap": [ "app/Application.php" ]
+    },
+    "autoload-dev": {
+        "psr-4": { "Tests\\": "tests/" }
+    },
+    "require": {
+        "silex/silex": "~2.0",
+        "twig/twig": "^1.26",
+        "symfony/twig-bridge": "^3.1",
+        "symfony/asset": "^3.1",
+        "symfony/console": "^3.2",
+        "monolog/monolog": "^1.22",
+        "glavweb/markup-fixture": "~0.2",
+        "glavweb/silex-markup-fixture": "~0.1",
+        "glavweb/silex-static-page-generator": "~0.1"
+    }
+}

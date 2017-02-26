@@ -1,0 +1,26 @@
+{
+  "name": "silex-standard",
+  "version": "0.1.0",
+  "main": "gulpfile.js",
+  "scripts": {
+    "start": "gulp"
+  },
+  "author": "Andrey Nilov",
+  "license": "MIT",
+  "devDependencies": {
+    "browser-sync": "^2.2.0",
+    "chokidar": "^1.0.3",
+    "gulp": "^3.8.11",
+    "gulp-concat": "~2.5.2",
+    "gulp-connect": "~2.2.0",
+    "gulp-ext-replace": "^0.2.0",
+    "gulp-less": "~3.0.3",
+    "gulp-livereload": "~3.8.0",
+    "gulp-notify": "^2.2.0",
+    "gulp-rename": "~1.2.2",
+    "gulp-swig": "^0.7.4"
+  },
+  "dependencies": {
+    "social-likes": "^3.1.2"
+  }
+}

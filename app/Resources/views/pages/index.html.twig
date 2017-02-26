@@ -1,0 +1,170 @@
+{% extends 'base.html.twig' %}
+
+{% set category = 'main_page' %}
+
+{% block stylesheets %}
+    {{ parent() }}
+{% endblock %}
+
+{% block content %}
+
+    <div class="container" id="home">
+        <div style="margin-top: 80px"></div>
+        <h1>Welcome!</h1>
+
+        <section>
+            <p style="padding: 10px 0">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium alias aperiam aspernatur assumenda consequatur culpa cum cumque deleniti deserunt dolor enim est eum ex excepturi facere facilis hic incidunt ipsam iste laboriosam laborum magnam maxime molestiae mollitia, nobis officia pariatur possimus quas quibusdam quidem reiciendis reprehenderit similique tempore tenetur ullam voluptate voluptatibus? Consectetur illo in, ipsa nostrum porro temporibus ullam!
+            </p>
+        </section>
+
+        <section>
+            <div class="row">
+                <div class="col-md-6">
+                    <div>
+                        {% if videoItem %}
+                            <iframe class="js-youtube-video-frame youtube-video__frame" width="480" height="270" src="https://www.youtube.com/embed/{{ videoItem.video.provider_reference }}?rel=0" frameborder="0"  allowfullscreen></iframe>
+                            <div><strong>{{ videoItem.name }}</strong></div>
+                        {% endif %}
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus culpa debitis ex explicabo facere fugiat ipsum itaque labore, maxime numquam obcaecati odit quod reiciendis rerum sed sunt voluptatem, voluptates? Ab adipisci asperiores assumenda cum delectus dignissimos distinctio dolor ea, explicabo hic illo iste minima nulla numquam odio quia quis recusandae sunt totam velit! Alias aliquam aspernatur autem beatae consequatur, consequuntur dolor doloremque, doloribus earum eius enim est eveniet in minus molestiae molestias natus nisi officia officiis, optio possimus quae quam quos saepe sint sunt vitae. A ad alias architecto asperiores aspernatur at blanditiis commodi consectetur deserunt distinctio ducimus eos esse expedita incidunt itaque laboriosam necessitatibus nostrum, nulla obcaecati pariatur provident quae quia quibusdam quo vel voluptas voluptatem voluptatibus. Consectetur, voluptate!
+                </div>
+            </div>
+        </section>
+
+        <hr style="margin: 20px 0">
+
+        <section>
+            <div class="row">
+                <div class="col-md-6">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus culpa debitis ex explicabo facere fugiat ipsum itaque labore, maxime numquam obcaecati odit quod reiciendis rerum sed sunt voluptatem, voluptates? Ab adipisci asperiores assumenda cum delectus dignissimos distinctio dolor ea, explicabo hic illo iste minima nulla numquam odio quia quis recusandae sunt totam velit! Alias aliquam aspernatur autem beatae consequatur, consequuntur dolor doloremque, doloribus earum eius enim est eveniet in minus molestiae molestias natus nisi officia officiis, optio possimus quae quam quos saepe sint sunt vitae. A ad alias architecto asperiores aspernatur at blanditiis commodi consectetur deserunt distinctio ducimus eos esse expedita incidunt itaque laboriosam necessitatibus nostrum, nulla obcaecati pariatur provident quae quia quibusdam quo vel voluptas voluptatem voluptatibus. Consectetur, voluptate!
+                </div>
+
+                <div class="col-md-6">
+                    <div>
+                        {% if imageItem %}
+                            <img src="{{ imageItem.image.thumbnail }}" alt="{{ imageItem.name }}">
+                            <div><strong>{{ imageItem.name }}</strong></div>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <hr style="margin: 20px 0">
+
+        <section id="products">
+            <h1 style="margin: 20px 0">Products</h1>
+
+            {# Product list #}
+            {% for product in products %}
+                <div class="card-wr">
+                    <div class="card">
+                        <div class="card__img">
+                            <img src="{{ product.image.thumbnail }}" alt="{{ product.image.name }}" class="card__image">
+                        </div>
+
+                        <div class="card__content">
+                            <div class="card__title">{{ product.title }}</div>
+                            <div class="card__desc">
+                                {{ product.description }}
+                            </div>
+                            <div class="card__price">{{ product.price }}$</div>
+                            <div class="card__btn">
+                                <button class="btn card__button">Buy</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+
+        </section>
+
+        <hr style="margin: 20px 0">
+
+        {# image gallery #}
+        <section id="image_gallery">
+            <h1 style="margin: 20px 0">Image Gallery</h1>
+
+            {% for imageGallery in imageGalleries %}
+                <div>
+                    <h2>{{ imageGallery.name }}</h2>
+                </div>
+
+                <div class="row" style="padding: 10px 0">
+                    {% for image in imageGallery.images %}
+                        <div class="col-sm-6 col-md-3">
+                            <a class="js-fancybox fancybox" rel="gallery_{{ imageGallery.id }}" href="{{ asset(image.content_path) }}">
+                                <img src="{{ image.thumbnail }}" alt="{{ image.name }}">
+                            </a>
+
+                            {{ image.name|slice(0, 35) }}
+                        </div>
+                    {% endfor %}
+
+                </div>
+            {% endfor %}
+        </section>
+
+        <hr style="margin: 20px 0">
+
+        {# video gallery #}
+        <section id="video_gallery">
+            <h1 style="margin: 20px 0">Video Gallery</h1>
+
+            {% for videoGallery in videoGalleries %}
+                <h2 style="margin: 20px 0">{{ videoGallery.name }}</h2>
+
+                <div class="row">
+                    {% for video in videoGallery.videos %}
+                        <div class="col-sm-6 col-md-4">
+                            <a class="js-fancybox various fancybox.iframe" href="https://www.youtube.com/embed/{{ video.provider_reference }}?rel=0">
+                                <img src="{{ asset(video.thumbnail_path) }}" alt="{{ video.name }}">
+                            </a>
+                            <div>{{ video.name|slice(0, 35) }}</div>
+                        </div>
+                    {% endfor %}
+                </div>
+            {% endfor %}
+        </section>
+
+        <hr style="margin: 20px 0">
+
+        {# feedback form #}
+        <section id="feedback">
+            <h1 style="margin: 20px 0">Feedback Form</h1>
+            <form class="js-form" action="" method="post">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label for="form-name">Name</label>
+                            <input type="text" class="form-control" id="form-name" placeholder="Your name" name="name" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="form-phone">Phone</label>
+                            <input type="text" class="form-control" id="form-phone" placeholder="Your phone" name="phone" required pattern="^((8|\+7)[\- ]?)?(\(?[\d\-]{3,6}\)?[\- ]?)?[\d\- ]{5,10}$">
+                        </div>
+                    </div>
+
+                    <div class="col-md-8">
+                        <div class="form-group">
+                            <label for="form-description">Your question</label>
+                            <textarea class="form-control" id="form-description" name="description" rows="5" placeholder="Describe your question"></textarea>
+                        </div>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-info">Send</button>
+            </form>
+        </section>
+    </div>
+
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+{% endblock %}
+

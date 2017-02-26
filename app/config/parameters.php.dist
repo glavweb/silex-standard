@@ -1,0 +1,5 @@
+<?php
+
+$parameters['host_url'] = 'http://silex-standard'; // Define here address for your site
+
+return $parameters;

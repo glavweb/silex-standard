@@ -1,0 +1,95 @@
+.card {
+  overflow: hidden;
+  position: relative;
+
+  &__img {
+
+  }
+
+  &__image {
+
+  }
+
+  &__content {
+    padding: 30px 0 30px 0;
+  }
+
+  &__title {
+    margin-bottom: 30px;
+    color: #5d6c77;
+    font-size: 30px;
+    font-weight: 700;
+    line-height: 36px;
+  }
+
+  &__desc {
+    margin-bottom: 30px;
+  }
+
+  &__price {
+    margin-bottom: 30px;
+    position: absolute;
+    right: 0;
+    top: 25px;
+    background-image: linear-gradient(to bottom right, #00cdaf, #00cd91);
+    .border-top-left-radius(10px);
+    .border-bottom-left-radius(10px);
+    padding: 5px 30px 5px 15px;
+    color: white;
+    font-size: 30px;
+    font-weight: 700;
+    line-height: 36px;
+  }
+
+  &__button {
+    width: 100%;
+    background: linear-gradient(to bottom right, #00cdaf, #00cd91);
+    .transition(ease 0.7s);
+    .border-radius(10px);
+    text-transform: uppercase;
+    color: white;
+    font-size: 26px;
+
+
+    &:hover {
+      background: linear-gradient(to bottom right, #04a878, #04a878);
+      color: white;
+    }
+
+    &:hover:focus {
+      background: linear-gradient(to bottom right, #04a878, #04a878);
+      color: white;
+    }
+
+    &:focus {
+      color: white;
+    }
+  }
+
+  @media (min-width: @screen-xs-min) {
+  }
+  @media (min-width: @screen-sm-min) {
+  }
+  @media (min-width: @screen-md-min) {
+    &__img {
+      width: 35%;
+      float: left;
+    }
+
+    &__content {
+      width: 65%;
+      float: left;
+      padding: 30px 0 30px 30px;
+    }
+
+    &__desc {
+      margin-bottom: 50px;
+    }
+  }
+  @media (min-width: @screen-lg-min) {
+  }
+}
+
+.card-wr {
+  margin: 30px 0;
+}
